@@ -27,4 +27,8 @@ public class QuitApp : MonoBehaviour {
 	public void Exit() {
 		Application.Quit(); 
 	}
+
+	public void GoBack(){
+		Application.LoadLevel("Main_AR");
+	}
 }
