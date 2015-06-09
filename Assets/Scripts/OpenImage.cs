@@ -22,79 +22,46 @@ public class OpenImage: MonoBehaviour{
 	private int currentImage = 0;
 	public RawImage rawImage; 
 
-	public float changeTime = 10.0f;
-	public float timeSinceLast = 1.0f;
 
 	void Start() {
-		currentImage = 0;
+		//currentImage = 0;
 		rawImage.texture = imageArray[currentImage]; 
-		Debug.Log(currentImage);
 	}
 
 	void Update(){
-		Debug.Log(currentImage);
-		if(timeSinceLast > changeTime && currentImage < imageArray.Length)
+		if (Input.GetKeyUp("left"))
 		{
-			rawImage.texture = imageArray[currentImage];
-			timeSinceLast = 0.0f;
+			Debug.Log ("You swiped left!");
 			currentImage++;
+			LoopArray();
+			rawImage.texture = imageArray[currentImage];
+			
+		}
+		
+		if (Input.GetKeyUp("right"))
+		{
+			Debug.Log ("You swiped right!");
+			currentImage--;
+			LoopArray();
+			rawImage.texture = imageArray[currentImage];
+			
 		}
 
-		/*if(currentImage == imageArray.Length)
-		{
+	}
+
+	//Loop Array
+	private void LoopArray(){
+		if (currentImage == imageArray.Length) {
 			currentImage = 0;
-		}*/
-
-		Debug.Log("time = " + timeSinceLast);
-		timeSinceLast +=Time.deltaTime;
-	}
-
-}
-
-
-/*public class OpenImage : MonoBehaviour {
-	
-	public GameObject panel;
-	public GameObject productImage01;
-	public GameObject productImage02;
-
-	private bool move = false;
-	public float targetPosition;
-	public float speed;
-
-	void Update(){
-
-		if(move)
-		{
-			Vector3 newPosition = transform.position;
-			newPosition.x -= speed * Time.deltaTime;
-			transform.position = newPosition;
-
-			if(transform.position.x < targetPosition){
-				move = false;
-				Debug.Log ("STOP");
-			}
+		}
+		
+		if (currentImage == -1) {
+			currentImage = imageArray.Length - 1;
 		}
 	}
-	
-	public void showImage01(){
-		//make sure wrong image is closed, then open correct one
-		productImage02.SetActive(false);
-		panel.SetActive(true);
-		productImage01.SetActive(true);
 
-	}
-
-	public void showImage02(){
-		//make sure wrong image is closed, then open correct one
-		productImage01.SetActive(false);
-		panel.SetActive(true);
-		productImage02.SetActive(true);
-	
-	}
 
 	//CHECK SWIPES
-
 	protected virtual void OnEnable()
 	{
 		// Hook into the OnSwipe event
@@ -115,15 +82,20 @@ public class OpenImage: MonoBehaviour{
 		if (swipe.x < -Mathf.Abs(swipe.y))
 		{
 			Debug.Log ("You swiped left!");
+			currentImage++;
+			LoopArray();
+			rawImage.texture = imageArray[currentImage];
 
-			move = true;
 		}
 		
 		if (swipe.x > Mathf.Abs(swipe.y))
 		{
 			Debug.Log ("You swiped right!");
-
+			currentImage--;
+			LoopArray();
+			rawImage.texture = imageArray[currentImage];
+			
 		}
 	}
-	
-}*/
+
+}
