@@ -22,7 +22,7 @@ public class OpenImage: MonoBehaviour{
 	private int currentImage = 0;
 	public RawImage rawImage; 
 
-	private float changeTime = 10.0f;
+	private float changeTime = 2.0f;
 	private float currentTime = 1.0f;
 	private bool canClose = false;
 
@@ -59,8 +59,13 @@ public class OpenImage: MonoBehaviour{
 	}
 
 	//Open Panel
-	public void EnablePanel(){
+	public void EnablePanel(int imageNumber){
+
 		panel.SetActive(true);
+
+		currentImage = imageNumber;
+		rawImage.texture = imageArray [currentImage];
+
 		currentTime = 0;
 		canClose = false;
 	}
@@ -94,10 +99,9 @@ public class OpenImage: MonoBehaviour{
 
 	public void OnFingerTap(Lean.LeanFinger finger)
 	{
-		Debug.Log("CLOSING WINDOW");
 		//close image
 		if (canClose){
-			//panel.SetActive(false);
+			panel.SetActive(false);
 		}
 	}
 	
