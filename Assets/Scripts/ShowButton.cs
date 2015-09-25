@@ -23,7 +23,7 @@ namespace Vuforia{
 		
 		private TrackableBehaviour mTrackableBehaviour;
 
-		public GameObject animButton;
+		public GameObject modelUI;
 		public GameObject targetModel;
 
 		private PlayButton playButton;
@@ -31,7 +31,7 @@ namespace Vuforia{
 		//private AudioSource modelSFX;
 
 		void Start () {
-			animButton.SetActive(false);
+			modelUI.SetActive(false);
 
 			//modelSFX = targetModel.GetComponent<AudioSource>();
 
@@ -51,14 +51,14 @@ namespace Vuforia{
 			    newStatus == TrackableBehaviour.Status.TRACKED)
 			{
 				//if tracked, show UI 
-				animButton.SetActive(true);
+				modelUI.SetActive(true);
 
 
 			}
 			else
 			{
 				//if image target lost, hide UI
-				animButton.SetActive(false);
+				modelUI.SetActive(false);
 
 				//if playing animation, stop animation, change icon
 				playButton = targetModel.GetComponent<PlayButton>();

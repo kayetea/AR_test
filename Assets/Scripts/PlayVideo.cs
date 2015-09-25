@@ -10,6 +10,9 @@ public class PlayVideo : MonoBehaviour {
 	}
 
 	public void PlayM (){
-		Handheld.PlayFullScreenMovie (movieName, Color.black, FullScreenMovieControlMode.CancelOnInput, FullScreenMovieScalingMode.AspectFit);
-	}
+        if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            Handheld.PlayFullScreenMovie(movieName, Color.black, FullScreenMovieControlMode.Full, FullScreenMovieScalingMode.AspectFit);
+        }
+    }
 }
