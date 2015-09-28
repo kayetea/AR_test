@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
   <Tracking>
-    <ImageTarget name="test-bms-target" size="18.410000 28.314526" />
+    <ImageTarget name="Hyperbaric_pg" size="22.000000 18.307451" />
     <ImageTarget name="IPT3_pg" size="21.600000 17.230669" />
     <ImageTarget name="GL-6000_pg" size="21.600000 11.205221" />
     <ImageTarget name="GL-4000_pg" size="21.600000 16.244047" />

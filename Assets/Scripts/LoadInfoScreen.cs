@@ -10,5 +10,6 @@ public class LoadInfoScreen : MonoBehaviour {
 		Debug.Log("LOAD NEW SCREEN");
 
 		Application.LoadLevel(sceneName);
+		Resources.UnloadUnusedAssets ();
 	}
 }

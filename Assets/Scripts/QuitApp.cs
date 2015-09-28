@@ -30,5 +30,7 @@ public class QuitApp : MonoBehaviour {
 
 	public void GoBack(){
 		Application.LoadLevel("Main_AR");
+		Resources.UnloadUnusedAssets ();
+	
 	}
 }
