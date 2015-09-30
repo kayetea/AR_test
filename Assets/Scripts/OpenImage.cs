@@ -55,15 +55,15 @@ public class OpenImage: MonoBehaviour{
 		currentImage = buttonImage;
 		rawImage.texture = imageArray[currentImage];	
 
-		//disable previous button
+		/*disable previous button
 		homePrevBtn = GameObject.Find("HomePrev");
-		homePrevBtn.SetActive(false);
+		homePrevBtn.SetActive(false);*/
 	}
 
 	//Close Panel
 	public void ClosePanel(){
 		panel.SetActive (false);
-		homePrevBtn.SetActive(true);
+		//homePrevBtn.SetActive(true);
 	}
 	
 

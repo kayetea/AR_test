@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿//Allows "OnMouseDown()" events to work on the oPhone
+//Attach to main camera
+
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
