@@ -34,4 +34,9 @@ public class SceneLoad : MonoBehaviour {
 		Application.LoadLevel(sceneName);
 		Resources.UnloadUnusedAssets ();
 	}
+
+	public void OnMouseDown(){
+		Application.LoadLevel(sceneName);
+		Resources.UnloadUnusedAssets ();
+	}
 }

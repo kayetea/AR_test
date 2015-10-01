@@ -15,6 +15,7 @@ public class LoadInfo : MonoBehaviour {
 	
 	// Activates when object is clicked
 	void OnMouseDown(){
+		Debug.Log ("enter on mouse down");
 
 		//if a video element is attached, play the video
 		if(playVideoInstance && !infoObjToLoad.activeInHierarchy)

@@ -5,6 +5,7 @@ public class MediaButtonToggles : MonoBehaviour {
 
     public void ToggleVisibility(GameObject toggleObject)
     {
+		Debug.Log ("enter toggle visibility");
         if (toggleObject.activeSelf)
         {
             Debug.Log("turn off");

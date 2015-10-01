@@ -7,3 +7,5 @@ public class CurrentlyLoadedObjs : MonoBehaviour {
 void Start(){
 	}
 }
+
+
