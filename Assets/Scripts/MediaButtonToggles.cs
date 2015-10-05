@@ -4,37 +4,45 @@ using System.Collections;
 public class MediaButtonToggles : MonoBehaviour {
 
     public void ToggleVisibility(GameObject toggleObject)
-    {
+	{
 		Debug.Log ("enter toggle visibility");
-        if (toggleObject.activeSelf)
+		if (toggleObject.activeSelf)
         {
             Debug.Log("turn off");
-            toggleObject.SetActive(false);
+			toggleObject.SetActive(false);
         }
-        else if (!toggleObject.activeInHierarchy)
+		else if (!toggleObject.activeInHierarchy)
         {
             Debug.Log("turn on");
-            toggleObject.SetActive(true);
+			toggleObject.SetActive(true);
         }
     }
 
-    public void ToggleAnimation(GameObject toggleObject)
+    public void ToggleAnimation(string animState)
     {
-		if(toggleObject.GetComponent<Animator>()){
-	        if (toggleObject.GetComponent<Animator>().enabled)
-	        {
-	            Debug.Log("turn off");
-	            toggleObject.GetComponent<Animator>().enabled = false;
-	        }
-	        else if (!toggleObject.GetComponent<Animator>().enabled)
-	        {
-	            Debug.Log("turn on");
-	            toggleObject.GetComponent<Animator>().enabled = true;
-	        }
+		if(this.GetComponent<Animator>()){
+			Animator animControl = this.GetComponent<Animator>();
+			if(animControl.GetCurrentAnimatorStateInfo(0).IsName(animState))
+			{
+				if (animControl.enabled)
+				{
+					Debug.Log("turn off");
+					animControl.enabled = false;
+				}
+				else if (!animControl.enabled)
+				{
+					Debug.Log("turn on");
+					animControl.enabled = true;
+				}
+			}
+			else{
+				//change state
+				animControl.CrossFade(animState, 0f);
+			}
 		}
-
-		else if(toggleObject.GetComponent<Animation>()){
-			foreach (AnimationState state in toggleObject.GetComponent<Animation>()){
+		//check of animation component
+		else if(this.GetComponent<Animation>()){
+			foreach (AnimationState state in this.GetComponent<Animation>()){
 				//pauses animation at speed 0 and plays it again at speed 1
 				if(state.speed > 0){
 					//pause anim
