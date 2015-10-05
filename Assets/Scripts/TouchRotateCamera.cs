@@ -29,7 +29,7 @@ public class TouchRotateCamera : MonoBehaviour {
 			if(Input.GetTouch(0).phase==TouchPhase.Moved) {
 				secondpoint = Input.GetTouch(0).position;
 				//Mainly, about rotate camera. For example, for Screen.width rotate on 180 degree
-				xAngle = xAngTemp + (secondpoint.x - firstpoint.x) * 180.0f / Screen.width;
+				xAngle = xAngTemp - (secondpoint.x - firstpoint.x) * 180.0f / Screen.width;
 				yAngle = yAngTemp - (secondpoint.y - firstpoint.y) *90.0f / Screen.height;
 				//Rotate camera
 				this.transform.rotation = Quaternion.Euler(yAngle, xAngle, 0.0f);
